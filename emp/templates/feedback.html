@@ -1,0 +1,182 @@
+{% load static %}
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--products ni link-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"><!--icon ni link-->
+
+		<style>
+			*{
+				text-align: center;
+			}
+            body 
+            {
+                font-family: 'Arial', sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+
+            .container 
+            {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+                header 
+            {
+                background-color: #333;
+                color: #fff;
+                padding: 10px 0;
+            }
+
+            nav 
+            {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            ul 
+            {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+            }
+
+            li 
+            {
+                margin-right: 20px;
+            }
+            a 
+            {
+                text-decoration: none;
+                color: #fff;
+                font-weight: bold;
+            }
+			.register
+			{
+				color: #27374D;
+				margin: auto;
+				text-align: center;
+				align-content: center;
+				align-items: center;
+			}
+			.formborder
+			{
+				margin-top: 10%;
+				margin-left: 35%;
+				box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.1);
+				border-radius: 10px;
+				border: 1px solid rgba(0, 0, 0, 0.1);
+				width: 30%;
+				height: 53%;
+				background-color: rgba(157, 178, 191, 0.5);
+			}
+			.btn-success 
+			{
+				background-color: #334452; /* Updated button color */
+				border-color: #526D82; /* Updated border color */
+			}
+			
+			.btn-success:hover 
+			{
+				background-color: #9DB2BF; /* Updated button color on hover */
+				border-color: #9DB2BF; /* Updated border color on hover */
+			}
+			
+            .account-info {
+                margin-top: 45px;
+                margin-left: 35%;
+				margin-bottom: 45px;
+                box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.1);
+                border-radius: 10px;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                width: 30%;
+                height: auto;
+                background-color: rgba(157, 178, 191, 0.5);
+                padding: 20px;
+            }
+			fieldset label {
+				margin-right: 10px; /* Adjust the value as needed */
+			}
+
+
+
+		</style>
+	</head>
+
+	<body>
+
+        <header>
+            <div class="container">
+                <nav>
+                    <ul>
+                        <li><a href="{% url 'home' %}"><img src="{% static 'images/logo-no-background.png' %}" style="text-decoration: none;" width="50px" height="50px" alt="logo"></a></li>
+                        <li><a href="{% url 'home' %}" style="color: white; text-decoration: none;">Home</a></li>
+                        <li><a href="{% url 'ecart' %}"><i class="fas fa-shopping-cart"></i></a></li>
+                        <li><a href="{% url 'account' %}"><i class="fas fa-user"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+		
+        <div class="account-info">
+            <h1 class="register">Feedback</h1>
+            <hr>
+        
+            <form method="POST">
+                {% csrf_token %}
+				<label style=" margin-left: 10px;">Email</label>
+				<div class="form-conrol">
+					<input style="width: 93%;padding: 12px 20px;margin: 8px 0;background-color: white;box-sizing: border-box;" type="email" id="email" name="email" placeholder="Enter email">
+				</div>
+				<fieldset>
+				<label style=" margin-left: 10px;" for="product-satisfaction">Product Satisfaction:</label><br>
+					<input type="radio" id="excellent" name="product_satisfaction" value="Excellent" required>
+					<label for="excellent">Excellent </label>
+					<input type="radio" id="good" name="product_satisfaction" value="Good">
+					<label for="good">Good </label>
+					<input type="radio" id="average" name="product_satisfaction" value="Average">
+					<label for="average">Average </label>
+					<input type="radio" id="poor" name="product_satisfaction" value="Poor">
+					<label for="poor">Poor </label>
+					<input type="radio" id="very-poor" name="product_satisfaction" value="Very Poor">
+					<label for="very-poor">Very Poor </label>				
+				<br><br>
+		
+				<label style=" margin-left: 10px;" for="customer-service">Customer Service:</label><br>
+					<input type="radio" id="excellent" name="customer_satisfaction" value="Excellent" required>
+					<label for="excellent">Excellent</label>
+					<input type="radio" id="good" name="customer_satisfaction" value="Good">
+					<label for="good">Good</label>
+					<input type="radio" id="average" name="customer_satisfaction" value="Average">
+					<label for="average">Average</label>
+					<input type="radio" id="poor" name="customer_satisfaction" value="Poor">
+					<label for="poor">Poor</label>
+					<input type="radio" id="very-poor" name="customer_satisfaction" value="Very Poor">
+					<label for="very-poor">Very Poor</label>
+				<br><br>
+
+				<label style=" margin-left: 10px;" for="overall-satisfaction">Overall Satisfaction:</label><br>
+					<input type="radio" id="excellent" name="overall_satisfaction" value="Excellent" required>
+					<label for="excellent">Excellent</label>
+					<input type="radio" id="good" name="overall_satisfaction" value="Good">
+					<label for="good">Good</label>
+					<input type="radio" id="average" name="overall_satisfaction" value="Average">
+					<label for="average">Average</label>
+					<input type="radio" id="poor" name="overall_satisfaction" value="Poor">
+					<label for="poor">Poor</label>
+					<input type="radio" id="very-poor" name="overall_satisfaction" value="Very Poor">
+					<label for="very-poor">Very Poor</label>
+				<br><br>
+				</fieldset>
+		
+				<label style=" margin-left: 10px;" for="improvement-suggestions">Suggestions for Improvement:</label><br>
+				<textarea id="improvement-suggestions" name="improvement_suggestions" rows="4" cols="50" required></textarea>
+				<br><br>
+
+                <button type="submit" class="btn btn-success"><a href="http://127.0.0.1:8000/home/">Submit</a></button>
+            </form>
+        </div>
+		</form>
+	</body>
+</html>

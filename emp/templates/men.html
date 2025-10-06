@@ -1,0 +1,289 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--bootstrap ni link--->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"><!--icon ni link-->
+
+    <style>
+        body 
+        {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container 
+        {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header 
+        {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        nav 
+        {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        ul 
+        {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        li 
+        {
+            margin-right: 20px;
+        }
+
+        a 
+        {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .product-card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Adjust if needed */
+        }
+
+        .product-card 
+        {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 300px;
+            margin: 20px;
+        }
+        .product-image 
+        {
+            width: 100%;
+            height: 200px;
+            background-color: #f0f0f0;
+            background-size: cover;
+        }
+        .product-details 
+        {
+            padding: 20px;
+        }
+        .product-title 
+        {
+            font-size: 20px;
+            margin: 0;
+            color: #333;
+        }
+        .product-price 
+        {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #009688;
+        }
+        .product-description 
+        {
+            font-size: 14px;
+            color: #666;
+        }
+
+       footer
+        {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+
+
+
+    </style>
+
+    <title>Your Clothing Store</title>
+</head>
+
+
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}"><img src="{% static 'images/logo-no-background.png' %}" style="text-decoration: none;" width="50px" height="50px" alt="logo"></a></li>
+                <li><a href="{% url 'home' %}" style="color: white; text-decoration: none;">Home</a></li>
+
+                <li><a href="{% url 'ecart' %}"><i class="fas fa-shopping-cart"></i></a></li>
+                <li><a href="{% url 'account' %}"><i class="fas fa-user"></i></a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+
+<!-- Your main content goes here -->
+<form><!--products ni details-->
+<div class="container">
+    <div class="product-card-container">
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://onemile.in/cdn/shop/files/Hyperflex_Stone_Grey_Element_Shacket.png?v=1704721166');"></div>
+            <div class="product-details">
+                <h2 class="product-title" name="product_name">Hyperflex Stone Grey Element Shacket</h2>
+                <p class="product-price" name="product_price">Rs. 3,199.00</p>
+                <p class="product-description">The Hyperflex Stone Grey Element Shacket is the perfect blend of comfort, performance and style.</p>
+                <a href="{% url 'cart' %}?product_name=Hyperflex Stone Grey Element Shacket&product_price=Rs.3,199.00&image_link=https://onemile.in/cdn/shop/files/Hyperflex_Stone_Grey_Element_Shacket.png?v=1704721166"class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://onemile.in/cdn/shop/files/Soft_Touch_Black_Frosty_Shacket.jpg?v=1704957583');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Soft Touch Black Frosty Shacket</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">Cut from a premium quality lightweight seersucker fabric, this shacket has a wavy texture that’s soft and stretchy to your body.</p>
+                <a href="{% url 'cart' %}?product_name=Soft Touch Black Frosty Shacket&product_price=Rs.3,199.00&image_link=https://onemile.in/cdn/shop/files/Soft_Touch_Black_Frosty_Shacket.jpg?v=1704957583" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://onemile.in/cdn/shop/files/Hyperflex_Dark_Navy_Shacket.png?v=1704719046');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Hyperflex Dark Navy Work Shacket</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">This versatile piece combines the elements of a full sleeve solid men's jacket with the comfort of a shirt.</p>
+                <a href="{% url 'cart' %}?product_name=Hyperflex Dark Navy Work Shacket&product_price=Rs.3,199.00&image_link=https://onemile.in/cdn/shop/files/Hyperflex_Dark_Navy_Shacket.png?v=1704719046" class="btn btn-primary">Add to Cart</a>
+            </div>    
+        </div>
+
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://onemile.in/cdn/shop/files/Superflex_Navy_Flyer_Shacket.jpg?v=1704722183');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Superflex Navy Flyer Shacket</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">This full-sleeve solid men jacket online seamlessly blends the sophistication of a jacket with the laid-back charm of a shacket.</p>
+                <a href="{% url 'cart' %}?product_name=Superflex Navy Flyer Shacket&product_price=Rs.3,199.00&image_link=https://onemile.in/cdn/shop/files/Superflex_Navy_Flyer_Shacket.jpg?v=1704722183" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://onemile.in/cdn/shop/files/OMKN1RFTE02BL00_1.jpg?v=1698239884');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Black Round Neck Tee</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">Designed to complement your casual day-to-day ensembles, this relaxed fit t-shirt is made of soft and breathable cotton fabric.</p>
+                <a href="{% url 'cart' %}?product_name=Black Round Neck Tee&product_price=Rs.3,199.00&image_link=https://onemile.in/cdn/shop/files/OMKN1RFTE02BL00_1.jpg?v=1698239884" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://onemile.in/cdn/shop/files/OMKN2RFTE01BC00_1.jpg?v=1698238424');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Baked Clay Round Neck Tee</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">Perfect with the look, this Baked Clay round neck t-shirt is designed to project simplicity while you’re at ease.</p>
+                <a href="{% url 'cart' %}?product_name=Baked Clay Round Neck Tee&product_price=Rs.3,199.00&image_link=https://onemile.in/cdn/shop/files/OMKN2RFTE01BC00_1.jpg?v=1698238424" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://onemile.in/cdn/shop/files/OMKN1RFTE02PT00_1.jpg?v=1698309537');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Petrol Round Neck Tee</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">The ultimate comfort and style with our Petrol Round Neck Colour Tee is a perfect addition to your wardrobe.</p>
+                <a href="{% url 'cart' %}?product_name=Petrol Round Neck Tee&product_price=Rs.3,199.00&image_link=https://onemile.in/cdn/shop/files/OMKN1RFTE02PT00_1.jpg?v=1698309537" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://onemile.in/cdn/shop/files/1_39ae3825-65c8-45ac-a547-7b7005729de1.jpg?v=1698306981');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Grey Round Neck Tee</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">his timeless, classic, grey crew neck t-shirt perfectly blends style and comfort.</p>
+                <a href="{% url 'cart' %}?product_name=Grey Round Neck Tee&product_price=Rs.3,199.00&image_link=https://onemile.in/cdn/shop/files/1_39ae3825-65c8-45ac-a547-7b7005729de1.jpg?v=1698306981" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://onemile.in/cdn/shop/files/Hyperflex_Beetroot_Shacket.png?v=1704719247');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Hyperflex Beetroot Work Shacket</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">Made from a lightweight 4 way stretch, allows you to move freely as you please, whether at work or on the go.</p>
+                <a href="{% url 'cart' %}?product_name=Hyperflex Beetroot Work Shacket&product_price=Rs.3,199.00&image_link=https://onemile.in/cdn/shop/files/Hyperflex_Beetroot_Shacket.png?v=1704719247" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://onemile.in/cdn/shop/files/Hyperflex_Spice_Orange_Work_Shacket.jpg?v=1704720869');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Hyperflex Spice Orange Work Shacket</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">Crafted with precision, this shacket boasts a vibrant spice orange hue, ideal for the modern man's wardrobe.</p>
+                <a href="{% url 'cart' %}?product_name=Hyperflex Spice Orange Work Shacket&product_price=Rs.3,199.00&image_link=https://onemile.in/cdn/shop/files/Hyperflex_Spice_Orange_Work_Shacket.jpg?v=1704720869" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://onemile.in/cdn/shop/files/Hyperflex_Wine_Element_Shacket.png?v=1704720765');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Hyperflex Wine Element Shacket</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">Introducing the Hyperflex Red Wine Shackets for men, the epitome of style and functionality.</p>
+                <a href="{% url 'cart' %}?product_name=Hyperflex Wine Element Shacket&product_price=Rs.3,199.00&image_link=https://onemile.in/cdn/shop/files/Hyperflex_Wine_Element_Shacket.png?v=1704720765" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://onemile.in/cdn/shop/files/Hyperflex_Grey_Shacket.png?v=1704720250');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Hyperflex Grey Melange Element Shacket</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">The Hyperflex Grey Melange Element Shacket is a versatile garment that seamlessly combines 4-way stretch fabric with the sophistication of a shirt and the functionality of a jacket.</p>
+                <a href="{% url 'cart' %}?product_name=Hyperflex Grey Melange Element Shacket&product_price=Rs.3,199.00&image_link=https://onemile.in/cdn/shop/files/Hyperflex_Grey_Shacket.png?v=1704720250" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+</form>
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <a href="{% url 'aboutus' %}" style="color: white; text-decoration: none;"><h4>About Us</h4></a>
+                <p>Where fashion meets passion. Our journey began with a simple belief: clothing is more than just fabric stitched together—it's an expression of individuality...</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Contact Us</h4>
+                <p>Email: dakshitprajapati01@gmail.com</p>
+                <p>Phone: +91 8511496940</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Follow Us</h4>
+                <a href="https://www.facebook.com/"><p>Facebook</p></a>
+                <a href="https://twitter.com/_its_DP"><p>Twitter</p></a>
+                <a href="https://www.instagram.com/"><p>Instagram</p></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

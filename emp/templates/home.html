@@ -1,0 +1,341 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--bootstrap ni link--->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"><!--icon ni link-->
+
+    <style>
+        body 
+        {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container 
+        {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header 
+        {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        nav 
+        {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        ul 
+        {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        li 
+        {
+            margin-right: 20px;
+        }
+
+        a 
+        {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .product-card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Adjust if needed */
+        }
+
+        .product-card 
+        {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 300px;
+            margin: 20px;
+        }
+        .product-image 
+        {
+            width: 100%;
+            height: 200px;
+            background-color: #f0f0f0;
+            background-size: cover;
+        }
+        .product-details 
+        {
+            padding: 20px;
+        }
+        .product-title 
+        {
+            font-size: 20px;
+            margin: 0;
+            color: #333;
+        }
+        .product-price 
+        {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #009688;
+        }
+        .product-description 
+        {
+            font-size: 14px;
+            color: #666;
+        }
+
+       footer
+        {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+/* ahiya thi catagories ni css */
+
+        .zoomable-image 
+        {
+            width: 100%; /* Ensures images fill the container */
+            height: 400px; /* Set a fixed height for uniformity */
+            object-fit: cover; /* Maintain aspect ratio and cover container */
+            transition: transform 0.3s ease;
+        }
+
+        .zoomable-image:hover 
+        {
+            transform: scale(1.05);
+        }
+        .zoom-container:hover .zoomable-image,
+        .zoom-container:hover .overlay-text {
+            transform: scale(1.05);
+        }
+
+        .overlay-text_w {
+            position: absolute;
+            top: 120px; /* Adjust as needed */
+            left: 100px; /* Adjust as needed */
+            color: white;
+            font-size: 100px;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px 20px;
+            pointer-events: none; /* Disable pointer events on the overlay text */
+        }
+        .overlay-text_m {
+            position: absolute;
+            top: 120px; /* Adjust as needed */
+            left: 170px; /* Adjust as needed */
+            color: white;
+            font-size: 100px;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px 20px;
+            pointer-events: none; /* Disable pointer events on the overlay text */
+
+/* ahiya thi scrollable images ni css */
+
+        .image-scroll-container {
+            width: 1100px; /* Adjust as needed */
+            overflow: hidden;
+            }
+
+        .image-scroll-container img {
+            width: 100%;
+            display: block;
+            animation: scrollImages 10s linear infinite; /* Adjust duration as needed */
+            }
+
+        @keyframes scrollImages {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%); /* Adjust direction and distance as needed */
+        }
+        }
+   
+}
+
+    </style>
+
+    <title>Your Clothing Store</title>
+</head>
+
+
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}"><img src="{% static 'images/logo-no-background.png' %}" style="text-decoration: none;" width="50px" height="50px" alt="logo"></a></li>
+                <li><a href="{% url 'home' %}" style="color: white; text-decoration: none;">Home</a></li>
+                <li><a href="{% url 'ecart' %}"><i class="fas fa-shopping-cart"></i></a></li>
+                <li><a href="{% url 'account' %}"><i class="fas fa-user"></i></a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="image-scroll-container" style="width: 35%; height: 100%;">
+    <img src="https://marketplace.canva.com/EAFKwirl3N8/1/0/1600w/canva-brown-minimalist-fashion-product-banner-iRHpbHTqh-A.jpg" alt="Image 1">
+</div>
+
+
+
+
+<div class="container">
+    <!--catagories nu div -->
+    <div style="text-align: center;">
+        <h1>Who Are you shopping for?</h1></br>
+    </div>
+    <div class="row">
+        <div class="col-md-6 position-relative zoom-container">
+            <a href="{% url 'women' %}" class="image-container">
+                <img src="https://media.designcafe.com/wp-content/uploads/2020/08/19165535/girls-wardrobe-design.jpg" alt="Picture 1" class="zoomable-image">
+                <div class="overlay-text_w">Woman</div>
+            </a>
+        </div>
+        <div class="col-md-6 position-relative zoom-container">
+            <a href="{% url 'men' %}" class="image-container">
+                <img src="https://t3.ftcdn.net/jpg/07/44/57/16/360_F_744571617_LzFRlYEmM3K71qOJ2AvyHWkqqhl2aGtE.jpg" alt="Picture 2" class="zoomable-image">
+                <div class="overlay-text_m">Man</div>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Your main content goes here -->
+<form method="POST"><!--products ni details-->
+{% csrf_token %}
+<!-- collection for men-->
+
+<div class="container">
+    <div>
+        <h2 style="text-align: left;">Collection For Men
+        </h2>
+    </div>
+
+    <div class="product-card-container">
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://onemile.in/cdn/shop/files/Hyperflex_Stone_Grey_Element_Shacket.png?v=1704721166');"></div>
+            <div class="product-details">
+                <h2 class="product-title" name="product_name">Hyperflex Stone Grey Element Shacket</h2>
+                <p class="product-price" name="product_price">Rs. 3,199.00</p>
+                <p class="product-description">The Hyperflex Stone Grey Element Shacket is the perfect blend of comfort, performance and style.</p>
+                <a href="{% url 'cart' %}?product_name=Hyperflex Stone Grey Element Shacket&product_price=Rs.3,199.00&image_link=https://onemile.in/cdn/shop/files/Hyperflex_Stone_Grey_Element_Shacket.png?v=1704721166"class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://onemile.in/cdn/shop/files/Soft_Touch_Black_Frosty_Shacket.jpg?v=1704957583');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Soft Touch Black Frosty Shacket</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">Cut from a premium quality lightweight seersucker fabric, this shacket has a wavy texture that’s soft and stretchy to your body.</p>
+                <a href="{% url 'cart' %}?product_name=Soft Touch Black Frosty Shacket&product_price=Rs.3,199.00&image_link=https://onemile.in/cdn/shop/files/Soft_Touch_Black_Frosty_Shacket.jpg?v=1704957583" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://onemile.in/cdn/shop/files/Hyperflex_Dark_Navy_Shacket.png?v=1704719046');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Hyperflex Dark Navy Work Shacket</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">This versatile piece combines the elements of a full sleeve solid men's jacket with the comfort of a shirt.</p>
+                <a href="{% url 'cart' %}?product_name=Hyperflex Dark Navy Work Shacket&product_price=Rs.3,199.00&image_link=https://onemile.in/cdn/shop/files/Hyperflex_Dark_Navy_Shacket.png?v=1704719046" class="btn btn-primary">Add to Cart</a>
+            </div>    
+        </div>
+
+        <a href="{% url 'men' %}" style="color: #333; text-align: right; margin-top: 225px;"class="">More...</a> 
+    </div>
+
+<!--collection for women-->
+
+    <div>
+        <h2 style="text-align: left;">Collection For Women
+        </h2>
+    </div>
+
+    <div class="product-card-container">
+                
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://www.nicobar.com/cdn/shop/files/NBI029678_1_480x.jpg?v=1699440502');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Button Down Dress - Black</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">Put it on and feel incredible. It comes with bow-tie sleeves, a v-neck, pockets, and a length that falls just below the knee.</p>
+                <a href="{% url 'cart' %}?product_name=Button Down Dress - Black&product_price=Rs.3,199.00&image_link=https://www.nicobar.com/cdn/shop/files/NBI029678_1_480x.jpg?v=1699440502" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+
+                
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://www.nicobar.com/cdn/shop/files/NBI029673_1_480x.jpg?v=1699440504');"></div>
+            <div class="product-details">
+                <h2 class="product-title">V-neck Strappy Dress - Black & Grey</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">Monochrome magic: our V-neck strappy dress has the easiest silhouette.</p>
+                <a href="{% url 'cart' %}?product_name=V-neck Strappy Dress - Black & Grey&product_price=Rs.3,199.00&image_link=https://www.nicobar.com/cdn/shop/files/NBI029673_1_480x.jpg?v=1699440504" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+
+                
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://www.nicobar.com/cdn/shop/files/NBI033456_4_480x.jpg?v=1711309964');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Front Knot Jumpsuit - Teal TSSxNB</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">A one-piece perfection that marries ease, convenience, and a resolutely playful vibe. </p>
+                <a href="{% url 'cart' %}?product_name=Front Knot Jumpsuit - Teal TSSxNB&product_price=Rs.3,199.00&image_link=https://www.nicobar.com/cdn/shop/files/NBI033456_4_480x.jpg?v=1711309964" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+
+        <a href="{% url 'women' %}" style="color: #333; text-align: right; margin-top: 225px;"class="">More...</a> 
+    
+    </div>
+</div>
+</form>
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <a href="{% url 'aboutus' %}" style="color: white; text-decoration: none;"><h4>About Us</h4></a>
+                <p>Where fashion meets passion. Our journey began with a simple belief: clothing is more than just fabric stitched together—it's an expression of individuality...</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Contact Us</h4>
+                <p>Email: dakshitprajapati01@gmail.com</p>
+                <p>Phone: +91 8511496940</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Follow Us</h4>
+                <a href="https://www.facebook.com/"><p>Facebook</p></a>
+                <a href="https://twitter.com/_its_DP"><p>Twitter</p></a>
+                <a href="https://www.instagram.com/"><p>Instagram</p></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

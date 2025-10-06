@@ -1,0 +1,196 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--bootstrap ni link--->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"><!--icon ni link-->
+
+<style>
+    body 
+    {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container 
+    {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    header 
+    {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+    }
+
+    nav 
+    {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    ul 
+    {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+    li 
+    {
+        margin-right: 20px;
+    }
+
+    a 
+    {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .product-card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Adjust if needed */
+    }
+
+    .product-card 
+    {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        overflow: hidden;
+        width: 300px;
+        margin: 20px;
+    }
+    .product-image 
+    {
+        width: 100%;
+        height: 200px;
+        background-color: #f0f0f0;
+        background-size: cover;
+    }
+    .product-details 
+    {
+        padding: 20px;
+    }
+    .product-title 
+    {
+        font-size: 20px;
+        margin: 0;
+        color: #333;
+    }
+    .product-price 
+    {
+        font-size: 18px;
+        margin: 10px 0;
+        color: #009688;
+    }
+    .product-description 
+    {
+        font-size: 14px;
+        color: #666;
+    }
+
+    footer
+    {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+    }
+    .cart-container {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .cart-container h2 {
+        color: #333;
+    }
+
+    .continue-shopping-link {
+        display: inline-block;
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-top: 20px;
+    }
+
+    .continue-shopping-link:hover {
+        background-color: #555;
+    }
+</style>
+
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}"><img src="{% static 'images/logo-no-background.png' %}" style="text-decoration: none;" width="50px" height="50px" alt="logo"></a></li>
+                <li><a href="{% url 'home' %}" style="color: white; text-decoration: none;">Home</a></li>
+
+                <li><a href="{% url 'cart' %}"><i class="fas fa-shopping-cart"></i></a></li>
+                <li><a href="{% url 'account' %}"><i class="fas fa-user"></i></a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<form method="POST">
+<div class="container">
+
+    <div class="container cart-container">
+        
+        
+            <h2>Your Cart</h2>
+            <div class="cart-items">
+                
+                    <div class="cart-item">
+                        <p>Your Cart is empty</p>
+                    </div>
+              
+                <a href="{% url 'home' %}" class="btn btn-primary continue-shopping-link">Continue shopping</a>
+            </div>
+        
+    </div>
+</div>
+
+    
+</form>
+
+<footer style="margin-top: 145px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <a href="{% url 'aboutus' %}" style="color: white; text-decoration: none;"><h4>About Us</h4></a>
+                <p>Where fashion meets passion. Our journey began with a simple belief: clothing is more than just fabric stitched together—it's an expression of individuality...</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Contact Us</h4>
+                <p>Email: dakshitprajapati01@gmail.com</p>
+                <p>Phone: +91 8511496940</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Follow Us</h4>
+                <a href="https://www.facebook.com/"><p>Facebook</p></a>
+                <a href="https://twitter.com/_its_DP"><p>Twitter</p></a>
+                <a href="https://www.instagram.com/"><p>Instagram</p></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+</body>
+</html>

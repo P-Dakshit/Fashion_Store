@@ -1,0 +1,110 @@
+{% load static %}
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!bootstrap ni link>
+
+		<style>
+
+		*{
+			text-align: center;
+		}
+    
+        input{
+            width: 93%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            background-color: #DDE6ED;
+            box-sizing: border-box;
+            border-radius: 20px;
+        }
+        .register
+        {
+            color: #27374D;
+            margin: auto;
+            text-align: center;
+            align-content: center;
+            align-items: center;
+        }
+      
+        .formborder
+        {
+            margin-top: 10%;
+            margin-left: 35%;
+            box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            width: 30%;
+            height: 50%;
+			background-color: rgba(157, 178, 191, 0.5);
+        }
+		.btn-success {
+			background-color: #334452; /* Updated button color */
+			border-color: #526D82; /* Updated border color */
+		}
+		.btn-success:hover {
+			background-color: #9DB2BF; /* Updated button color on hover */
+			border-color: #9DB2BF; /* Updated border color on hover */
+		}
+		a {
+			color: #27374D; /* Updated link color */
+		}
+		a:hover {
+			color: #526D82; /* Updated link color on hover */
+		}
+		.back-video{
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			z-index: -1;
+		}
+		@media (min-aspect-ratio: 16/9)
+		{
+			.back-video{
+				width: 100%;
+				height: auto;
+			}
+		}
+		@media (max-aspect-ratio: 16/9)
+		{
+			.back-video{
+				width: auto;
+				height: 100%;
+			}
+		}
+		</style>
+
+	</head>
+
+	<body class="background">
+		<video autoplay loop muted plays-inline class="back-video">
+			<source src="{% static 'images/Live Wallpaper Anime HD_4K - Samurai Autumn.mp4' %}" type="video/mp4">
+		</video>
+		<form class="formborder" style="backdrop-filter: blur(10px);" class="form-horizontal" method="POST"><!-- action ma link mukvi next page ni>-->
+		{% csrf_token %}
+		<div style="margin-top: 5%;"></div><!--to give some space from border-->
+		
+		<h1 class="register"><label>Create An Account</label></h1>
+
+		<div style="margin-top: 4%;"></div>
+
+		<div style="margin-left: 2%;" style="margin-top: 5%;" class="form-conrol">
+			<input type="text" id="Username" name="username" placeholder="Username">
+		</div>
+
+		<div style="margin-left: 2%;" style="margin-top: 5%;" class="form-conrol">
+			<input type="email" id="email" name="email" placeholder="Enter email">
+		</div>
+
+		<div style="margin-left: 2%;" style="margin-top: 5%;" class="form-conrol">
+			<input type="password" id="pwd" name="password" placeholder="Enter Password">
+		</div>
+
+
+		<div style="margin-top: 5%;">
+			<button type="submit" class="btn btn-success"<a href="http://127.0.0.1:8000/home/">Log In</a></button>
+		</div>
+		
+
+		</form>
+	</body>
+</html>

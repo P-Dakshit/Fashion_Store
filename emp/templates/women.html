@@ -1,0 +1,292 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--bootstrap ni link--->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"><!--icon ni link-->
+
+    <style>
+        body 
+        {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container 
+        {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header 
+        {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        nav 
+        {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        ul 
+        {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        li 
+        {
+            margin-right: 20px;
+        }
+
+        a 
+        {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .product-card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Adjust if needed */
+        }
+
+        .product-card 
+        {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 300px;
+            margin: 20px;
+        }
+        .product-image 
+        {
+            width: 100%;
+            height: 200px;
+            background-color: #f0f0f0;
+            background-size: cover;
+        }
+        .product-details 
+        {
+            padding: 20px;
+        }
+        .product-title 
+        {
+            font-size: 20px;
+            margin: 0;
+            color: #333;
+        }
+        .product-price 
+        {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #009688;
+        }
+        .product-description 
+        {
+            font-size: 14px;
+            color: #666;
+        }
+
+       footer
+        {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+
+
+
+    </style>
+
+    <title>Your Clothing Store</title>
+</head>
+
+
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}"><img src="{% static 'images/logo-no-background.png' %}" style="text-decoration: none;" width="50px" height="50px" alt="logo"></a></li>
+                <li><a href="{% url 'home' %}" style="color: white; text-decoration: none;">Home</a></li>
+
+                <li><a href="{% url 'ecart' %}"><i class="fas fa-shopping-cart"></i></a></li>
+                <li><a href="{% url 'account' %}"><i class="fas fa-user"></i></a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+
+<!-- Your main content goes here -->
+<form><!--products ni details-->
+<div class="container">
+    <div class="product-card-container">
+                
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://www.nicobar.com/cdn/shop/files/NBI029678_1_480x.jpg?v=1699440502');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Button Down Dress - Black</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">Put it on and feel incredible. It comes with bow-tie sleeves, a v-neck, pockets, and a length that falls just below the knee.</p>
+                <a href="{% url 'cart' %}?product_name=Button Down Dress - Black&product_price=Rs.3,199.00&image_link=https://www.nicobar.com/cdn/shop/files/NBI029678_1_480x.jpg?v=1699440502" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+
+                
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://www.nicobar.com/cdn/shop/files/NBI029673_1_480x.jpg?v=1699440504');"></div>
+            <div class="product-details">
+                <h2 class="product-title">V-neck Strappy Dress - Black & Grey</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">Monochrome magic: our V-neck strappy dress has the easiest silhouette.</p>
+                <a href="{% url 'cart' %}?product_name=V-neck Strappy Dress - Black & Grey&product_price=Rs.3,199.00&image_link=https://www.nicobar.com/cdn/shop/files/NBI029673_1_480x.jpg?v=1699440504" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+
+                
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://www.nicobar.com/cdn/shop/files/NBI033456_4_480x.jpg?v=1711309964');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Front Knot Jumpsuit - Teal TSSxNB</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">A one-piece perfection that marries ease, convenience, and a resolutely playful vibe. </p>
+                <a href="{% url 'cart' %}?product_name=Front Knot Jumpsuit - Teal TSSxNB&product_price=Rs.3,199.00&image_link=https://www.nicobar.com/cdn/shop/files/NBI033456_4_480x.jpg?v=1711309964" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://www.nicobar.com/cdn/shop/files/NBI033293_1_480x.jpg?v=1709813761');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Lazy Sunday Tunic - Lime</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">Crafted in light and crisp organic cotton with batwing sleeves, this piece works effortlessly from the boardroom to lounging by the pool.</p>
+                <a href="{% url 'cart' %}?product_name=Lazy Sunday Tunic - Lime&product_price=Rs.3,199.00&image_link=https://www.nicobar.com/cdn/shop/files/NBI033293_1_480x.jpg?v=1709813761" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://www.nicobar.com/cdn/shop/files/NBI032503_1_480x.jpg?v=1709813762');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Lazy Sunday Tunic - Red</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">Crafted in light and crisp organic cotton with batwing sleeves, this piece works effortlessly from the boardroom to lounging by the pool.</p>
+                <a href="{% url 'cart' %}?product_name=Lazy Sunday Tunic - Red&product_price=Rs.3,199.00&image_link=https://www.nicobar.com/cdn/shop/files/NBI032503_1_480x.jpg?v=1709813762" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://www.nicobar.com/cdn/shop/files/NBI032468_1_480x.jpg?v=1709813760');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Basic Long Length Kurta - Ochre</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">This easy-wearing kurta falls below the knee, and with its body-skimming fit, it pairs perfectly with pyjamas or a pair of jeans</p>
+                <a href="{% url 'cart' %}?product_name=Basic Long Length Kurta - Ochre&product_price=Rs.3,199.00&image_link=https://www.nicobar.com/cdn/shop/files/NBI032468_1_480x.jpg?v=1709813760" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://www.nicobar.com/cdn/shop/files/NBI033315_1_480x.jpg?v=1709813759');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Short Sleeve Kurta - Black</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">A well-cut solid kurta is a wardrobe essential, and Nicobar’s Short Sleeve Kurta pairs equally well with cigarette trousers or your regular blue jeans.</p>
+                <a href="{% url 'cart' %}?product_name=Short Sleeve Kurta - Black&product_price=Rs.3,199.00&image_link=https://www.nicobar.com/cdn/shop/files/NBI033315_1_480x.jpg?v=1709813759" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://www.nicobar.com/cdn/shop/files/NBI033308_1_480x.jpg?v=1709813761');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Short Sleeve Kurta - Indigo</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">A well-cut solid kurta is a wardrobe essential, and Nicobar’s Short Sleeve Kurta pairs equally well with cigarette trousers or your regular blue jeans.</p>
+                <a href="{% url 'cart' %}?product_name=Short Sleeve Kurta - Indigo&product_price=Rs.3,199.00&image_link=https://www.nicobar.com/cdn/shop/files/NBI033308_1_480x.jpg?v=1709813761" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://www.nicobar.com/cdn/shop/files/NBI033294_1_480x.jpg?v=1709813760');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Basic Long Length Kurta - Lime</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">This easy-wearing kurta falls below the knee, and with its body-skimming fit, it pairs perfectly with pyjamas or a pair of jeans</p>
+                <a href="{% url 'cart' %}?product_name=Basic Long Length Kurta - Lime&product_price=Rs.3,199.00&image_link=https://www.nicobar.com/cdn/shop/files/NBI033294_1_480x.jpg?v=1709813760" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://www.nicobar.com/cdn/shop/files/NBI033433_1_480x.jpg?v=1711309962');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Pepo Kurta - Teal & White TSSxNB</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">The Pepo Kurta comes alive in the signature Nicobar stripe in shades of teal and white, designed for endless celebrations.</p>
+                <a href="{% url 'cart' %}?product_name=Pepo Kurta - Teal & White TSSxNB&product_price=Rs.3,199.00&image_link=https://www.nicobar.com/cdn/shop/files/NBI033433_1_480x.jpg?v=1711309962" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://www.nicobar.com/cdn/shop/files/NBI031947_1_480x.jpg?v=1707671734');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Short Knit Dress - Red</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">The Short Knit makes a splash in a bold and bright red, perfect to breeze through the day. </p>
+                <a href="{% url 'cart' %}?product_name=Short Knit Dress - Red&product_price=Rs.3,199.00&image_link=https://www.nicobar.com/cdn/shop/files/NBI031947_1_480x.jpg?v=1707671734" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://www.nicobar.com/cdn/shop/files/NBI031952_1_480x.jpg?v=1707671732');"></div>
+            <div class="product-details">
+                <h2 class="product-title">Esther Dress - Navy</h2>
+                <p class="product-price">Rs. 3,199.00</p>
+                <p class="product-description">Whether it's a casual day out or a special evening event, the navy Esther dress is a wardrobe classic.</p>
+                <a href="{% url 'cart' %}?product_name=Esther Dress - Navy&product_price=Rs.3,199.00&image_link=https://www.nicobar.com/cdn/shop/files/NBI031952_1_480x.jpg?v=1707671732" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+</form>
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <a href="{% url 'aboutus' %}" style="color: white; text-decoration: none;"><h4>About Us</h4></a>
+                <p>Where fashion meets passion. Our journey began with a simple belief: clothing is more than just fabric stitched together—it's an expression of individuality...</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Contact Us</h4>
+                <p>Email: dakshitprajapati01@gmail.com</p>
+                <p>Phone: +91 8511496940</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Follow Us</h4>
+                <a href="https://www.facebook.com/"><p>Facebook</p></a>
+                <a href="https://twitter.com/_its_DP"><p>Twitter</p></a>
+                <a href="https://www.instagram.com/"><p>Instagram</p></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
